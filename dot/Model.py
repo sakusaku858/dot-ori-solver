@@ -114,13 +114,15 @@ class Model:
                 cwd=script_dir, 
                 stderr=subprocess.STDOUT,
                 text=True,
-                encoding="utf-8"
+                # encoding="utf-8"
             )
         except subprocess.CalledProcessError as e:
             # C++側が 0 以外で終了したとき、ここに飛んでくる
             print("=== C++プログラムがエラーで終了しました ===")
             print("終了コード:", e.returncode)
             print("C++からの出力・エラー内容:\n", e.output)
+
+        print("tried solve non connect")
 
         print(result_str)
 

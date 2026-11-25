@@ -10,6 +10,8 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <filesystem>
+#include <cstdlib>
 
 using namespace std;
 
@@ -577,6 +579,18 @@ int main(int argc, char *argv[])
     {
         input_filename = argv[1];
         output_filename = argv[2];
+    }
+
+    char full_path[_MAX_PATH];
+    if (_fullpath(full_path, input_filename.c_str(), _MAX_PATH) != nullptr)
+    {
+        std::cout << "full-path: " << full_path << std::endl;
+    }
+
+    char out_full_path[_MAX_PATH];
+    if (_fullpath(out_full_path, output_filename.c_str(), _MAX_PATH) != nullptr)
+    {
+        std::cout << "full-path: " << out_full_path << std::endl;
     }
 
     // 1. ファイルから辺を読み込む
