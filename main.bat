@@ -1,1 +1,2 @@
-python3 dot/main.py
+py dot/main.py
+pause
